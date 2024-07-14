@@ -9,11 +9,15 @@ Node v20.15
 
 ## Unit tests
 1. Angular
-   1. From /takehome/webapp
-   2. ng test
+   1. From /go-angular-postgres/webapp
+    ```shell script
+   ng test
+    ```
 2. GO
-   1. From /takehome/server
-   2. go test .
+   1. From /go-angular-postgres/server
+    ```shell script
+   go test .
+    ```
   
 ## How to build and run
 1. Create a Docker network:
