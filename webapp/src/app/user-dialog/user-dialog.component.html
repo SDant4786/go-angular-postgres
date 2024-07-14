@@ -1,0 +1,64 @@
+<form class="mat-dialog-content" [formGroup]="controlGroup">
+  <h1 mat-dialog-title>{{ user.id ? 'Edit' : 'Add' }} User</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" formControlName="username"
+             [errorStateMatcher]="errorStateMatcher" required>
+      <mat-error *ngIf="hasError('username', 'required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <mat-label>Firstname</mat-label>
+      <input matInput placeholder="Firstname" formControlName="firstname"
+             [errorStateMatcher]="errorStateMatcher" required>
+      <mat-error *ngIf="hasError('firstname', 'required')">
+        Firstname is required
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <mat-label>Lastname</mat-label>
+      <input matInput placeholder="Lastname" formControlName="lastname"
+             [errorStateMatcher]="errorStateMatcher" required>
+      <mat-error *ngIf="hasError('lastname', 'required')">
+        Lastname is required
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email"
+             [errorStateMatcher]="errorStateMatcher" required>
+      <mat-error *ngIf="hasError('email', 'required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="hasError('email', 'email')">
+        Invalid email format
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <mat-label>UserStatus</mat-label>
+      <input matInput placeholder="UserStatus" formControlName="userStatus"
+             [errorStateMatcher]="errorStateMatcher" required>
+      <mat-error *ngIf="hasError('userStatus', 'required')">
+        UserStatus is required
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <mat-label>Department</mat-label>
+      <input matInput placeholder="Department" formControlName="department">
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button *ngIf="user.id" [mat-dialog-close] (click)="delete()">
+      Delete
+    </button>
+    <button mat-button [mat-dialog-close] (click)="save()"
+            [disabled]="!controlGroup.valid">Save</button>
+  </mat-dialog-actions>
+</form>
